@@ -1,0 +1,9 @@
+---
+- hosts: all
+  sudo: yes
+  remote_user: ec2-user
+  vars_files:
+    - vars/user.yml
+  tasks:
+    - name: Add a user
+      user: name={{ username }} group={{ group }} shell=/bin/bash

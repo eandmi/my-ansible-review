@@ -1,0 +1,13 @@
+---
+- hosts: all
+  sudo: yes
+  remote_user: ec2-user
+  vars:
+    username: newuser
+    group: ec2-user
+    shell:
+      bash: /bin/bash
+      zsh: /bin/zsh
+  tasks:
+    - name: Add a user
+      user: name={{ username }} group={{ group }} shell={{ shell.bash }}
